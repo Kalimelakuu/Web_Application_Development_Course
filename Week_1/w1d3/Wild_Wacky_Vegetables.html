@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .container{
+            
+        }
+        .box{
+            width: 250px;
+            height: 150px;
+            border: 1px solid grey;
+            background-color: aliceblue;
+            padding: 15px;
+            justify-content: center;
+        }
+        .box2{
+            font-size: 17px;
+            background-color: lightcoral;
+            padding: 12px;
+            text-align: center;
+            position: relative;
+
+           
+          
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 60%;
+        }
+        .grid-wrapper{
+            display:grid;
+            grid-template-columns: auto auto auto auto;
+            grid-auto-rows: 200px;
+            grid-gap: 5px;
+            grid-auto-flow: dense;
+           
+    
+        }
+
+        img{
+            margin-top: 15px;
+            width:100px;
+            border: 1px solid grey;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="display: flex;gap: 25px;">
+
+        <div class="box">
+            <p style="font-weight: bold;"> Some favorites</p>
+            <ul>
+                <li>Carrot</li>
+                <li>Avocado</li>
+                <li>Milk</li>
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <div class="box2">
+                <p>This is a section of a pargraph that need to be seen</p>
+            </div>
+            <h2>Wild & Wacky Vegetables</h2>
+
+            <p style="text-align: justify;width: 60%;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat in explicabo qui voluptas necessitatibus ratione repudiandae vitae pariatur earum. Inventore minus quae dignissimos sint dolor ut quaerat natus fuga voluptate?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ducimus eveniet ex quidem labore. Aperiam officiis dolor nesciunt accusamus, cum modi ducimus nostrum, molestias dolorum nihil distinctio? Iusto, earum corrupti!</p>
+            <h2>Some Disease</h2>
+
+            <table>
+                <tr>
+                    <th>Degree</th>
+                    <th>Disease</th>
+                </tr>
+                <tr>
+                    <td>Faharnite</td>
+                    <td>Cabbage</td>
+                </tr>
+                <tr>
+                    <td>Celcius</td>
+                    <td>Onion</td>
+                </tr>
+            </table>
+
+            <div style=" display: flex;gap: 30px; ">
+
+                <img  src="p1.jpg" alt="">
+                <img src="p1.jpg" alt="">
+
+                <img src="p1.jpg" style="margin-left: 170px;" alt="">
+                <img src="p1.jpg" alt="">
+               
+            </div>
+            <div style=" display: flex;gap: 100px; ">
+                <div style="width: 350px;">
+                    <h3>First Section</h3>
+                    <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, corrupti consequuntur recusandae dolores nemo necessitatibus iste magni id dolore rerum veritatis accusamus sint ex aut rem laboriosam ab dolor culpa!</p>
+               
+                </div>
+
+                <div style="width: 350px;">
+                    <h3>First Section</h3>
+                    <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, corrupti consequuntur recusandae dolores nemo necessitatibus iste magni id dolore rerum veritatis accusamus sint ex aut rem laboriosam ab dolor culpa!</p>
+               
+                </div>
+            </div>
+
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>

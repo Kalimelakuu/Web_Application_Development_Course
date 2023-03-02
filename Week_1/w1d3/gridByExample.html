@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            padding-right: 10%;
+            padding-left: 5%;
+        }
+        .box{
+            border: 1px solid rgb(175, 172, 172);
+            border-radius: 25px;
+            padding: 9px;
+            font-size: 13px;
+        }
+        .container_grid {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+            grid-template-columns: auto  auto  auto;
+            grid-auto-rows: 200px;
+            grid-gap: 5px;
+            grid-auto-flow: dense;
+        }
+        .horizontal{
+            grid-column: span 2;
+        }
+        .vertical {
+            grid-row: span 2;
+        }
+        .big{
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .container img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div style="display: flex;gap: 300px; background-color: aliceblue;padding: 15px;">
+            <img src="trending.png" alt="" width="30px" style="padding: 3px; border: 1px solid black; border-radius: 20px;">
+            <div style="display: flex;gap: 30px;font-size: 14px;align-items: center;">
+                <span>Home</span>
+                <span>Mega Menu</span>
+                <span>Download Resume</span>
+                <span>Contact</span>
+                <span>Get Webfiy Today</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <p style="color: rgb(76, 74, 74);">David Girmour</p>
+        <h2 style="text-align: justify;width: 300px;">Making at the sweet spot between design and speed</h2>
+
+        <div style="display: flex;gap: 20px;">
+            <span class="box">All</span>
+            <span class="box">Branding</span>
+            <span class="box" >Motion</span>
+            <span class="box">Photography</span>
+            <span class="box">UI/UX</span>
+        </div>
+
+        <div class="container_grid">
+            <p style="text-align: justify;"> 
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus consequatur dicta exercitationem, nesciunt illum aspernatur velit voluptates eaque, vitae a amet dolorum ratione. Quos impedit consequatur voluptas suscipit sint eum!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse reiciendis autem veniam cum labore illo at, vitae enim voluptatem. Laboriosam vel commodi, tempore sunt ad dolorem porro nobis atque distinctio.</p>
+            <img  src="webify-grid-website-template.jpg"  alt="">
+            <img   src="webify-grid-website-template.jpg" alt="">
+
+            <img class="vertical"  src="webify-grid-website-template.jpg"  alt="">
+            <img  class="vertical"  src="webify-grid-website-template.jpg"  alt="">
+            <img   src="webify-grid-website-template.jpg" alt="">
+        </div>
+
+       
+   
+    </div>
+</body>
+</html>
