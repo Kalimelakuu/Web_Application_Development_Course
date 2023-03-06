@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        p {
+            color: aquamarine;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            $('#myid').css('color', 'red');
+
+            //read attributes
+            console.log($('#myid').attr('id'));
+            // if($('#myid').attr('id') == 'myid'){
+            //     $('#myid').css('color', 'black');
+            // }
+
+            // modify attributes
+            $('#myid').attr('class', 'myClass')
+            $('#myid').attr('myOwnAttr', 'myClass')
+
+            // replace attributes
+            $('#myid').replaceWith('<p id="myid">Hello World<p>')
+
+            //parent
+           let parent = $("#myId").parent();
+           console.log(parent.attr('class'))
+
+           //childeren
+
+           let childeren = $("#myid").children().each(function(id, element){
+            console.log(id,element)
+           // let jQElement = 
+           });
+
+            console.log($('#myid'));
+        }
+    </script>
+</head>
+<body class="myBody">
+    <p id="myid">Hello</p>
+    <div style="border: 1px solid blue;height: 100px;"> DIV</div>
+    
+</body>
+</html>

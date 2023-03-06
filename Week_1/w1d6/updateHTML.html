@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <title>Document</title>
+
+    <script>
+      $(document).ready(function () {
+        $("#button1").click(function () {
+          $("#p1").attr("id", "p2");
+
+          // update innerHTML
+          let text = document.createElement("p");
+          text.innerHTML = "Hello World";
+          $("#p2").html(text);
+
+          $("#p2").addClass("fontClass");
+          $("#p2").removeClass("borderClass");
+        });
+      });
+
+      $(document).ready(function () {
+        $("#button2").click(function () {
+          $("#p2").addClass("fontClass").removeClass("borderClass");
+        });
+      });
+
+      // $(document).ready(function(){
+      //    $('input').attr('value', "pleae Enter a value")
+
+      // })
+
+      $(document).ready(function () {
+        $("#btn2").click(function () {
+          let temp = $("#in1").val();
+
+          $("#in1").val($("#in2").val());
+          $("#in2").val(temp);
+        });
+      });
+
+      $(document).ready(function () {
+        $("#btn3").click(function () {
+          let temp = $("#in2").val() + " " + $("#in1").val();
+          $("#in2").val(temp);
+          $("#p2").remove();
+        });
+      });
+
+      $(document).ready(function () {
+        $("#btn4").click(function () {
+          $("div.innerp").replaceWith("<h1>This is the replaced one</h1>");
+        });
+      });
+
+      $(document).ready(function(){
+        $(":checked").wrap("<span style='background-color:red'>");
+        $("div").append( "<h2>New heading</h2>" );
+      })
+
+    </script>
+    <style>
+      .fontClass {
+        font-size: 50px;
+      }
+      .borderClass {
+        border: 1px solid grey;
+      }
+      #p1 {
+        color: blue;
+      }
+      #p2 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="borderClass" id="p1">This is paragraph one</p>
+    <button id="button1">Click</button><br />
+
+    <button id="button2">Replace Class</button>
+
+    <br /><br />
+    <hr />
+
+    <!-- <input maxlength="6"  id="colorpickerField1" name="sitebg" value="#EEEEEE" type="text"> -->
+
+    <input id="in1" type="text" value="Name" />
+
+    <input id="in2" type="text" value="Alias" />
+
+    <button id="btn2">Swap</button>
+    <button id="btn3">Append</button>
+
+    <div  class="innerp">
+      <p id="p3">This is the last paragraph</p>
+      <button id="btn4">Relplace me</button>
+    </div>
+
+    <br /><br /><hr />
+
+    <input type="checkbox" name="mycheck"  checked="checked">
+    <input type="checkbox" name="mycheck" >
+  </body>
+  
+</html>

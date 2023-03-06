@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+
+    // hide the div
+   $(document).ready(function() {
+      $("div").click(function(){
+         $(this).hide(1000);
+      });
+   });
+
+  // show and hide the div
+   $(document).ready(function() {
+      $("#show").click(function(){
+         $("#box").show(1000);
+      });
+      $("#hide").click(function(){
+         $("#box").hide(5000);
+      });
+   });
+
+   // toggle the div
+   $(document).ready(function() {
+      $("#button").click(function(){
+         $("#box").toggle(1000);
+      });
+   });
+
+   // fade in and fade out
+   $(document).ready(function() {
+      $("#show1").click(function(){
+         $("#box").fadeIn(1000);
+      });
+      $("#hide1").click(function(){
+         $("#box").fadeOut(1000);
+      });
+   });
+
+   // fade toggle
+
+   $(document).ready(function() {
+      $("#button1").click(function(){
+         $("#box").fadeToggle(1000);
+      });
+   });
+
+   // slide toggle
+   $(document).ready(function() {
+      $("#button2").click(function(){
+         $("#box").slideToggle(1000);
+      });
+   });
+</script>
+<style>
+   button{cursor:pointer;}
+   #box{margin-bottom:5px;padding:12px;height:100px; width:125px; background-color:#9c9cff;}
+   div{ margin:10px;padding:12px; border:2px solid #666; width:60px; cursor:pointer}
+</style>
+</head>
+<body>
+   <p>Click on any of the squares to see the result:</p>
+
+   <div>Hide Me</div>
+   <div>Hide Me</div>
+   <div>Hide Me</div>
+
+   <hr><br>
+   <p>Click on Show and Hide buttons to see the result:</p>
+
+   <div id="box">This is Box</div>
+
+   <button id="hide">Hide Box</button>
+   <button id="show">Show Box</button>
+
+   <hr><br>
+   <button id="button">Toggle Box</button>
+
+   <hr><br>
+   <button id="hide1">fadeOut Box</button>
+   <button id="show1">fadeIn Box</button>
+
+   <hr><br>
+   
+   <button id="button1">Toggle Box</button>
+
+   <hr><br>
+
+   <button id="button2">Slide Toggle Box</button>
+</body>
+</html>

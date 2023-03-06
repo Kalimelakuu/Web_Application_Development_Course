@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <style>
+      .tableClass {
+        background-color: azure;
+        padding-top: 20px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 20px;
+      }
+    </style>
+
+    <script>
+      ////. Create HTML Elements
+      $(document).ready(function () {
+        // Creating Header
+        let header1 = document.createElement("h1");
+        header1.innerHTML = "Header 1";
+        let header2 = $("<h2></h2>").text("Header 2");
+        let header3 = $("<h3></h3>").text("Header 3");
+        let header4 = $("<h4></h4>").text("Header 4");
+        let header5 = $("<h5></h5>").text("Header 5");
+        let header6 = $("<h6></h6>").text("Header 6");
+
+        // Creating Image
+        let img = $("<img  />").attr("src", "p1.jpg");
+        let img2 = "<img src='p1.jpg' width=\"100px\" />";
+
+        // Creating Anchor
+        var anchor = $("<a>");
+        anchor.attr("href", "http://www.google.com");
+        anchor.attr("title", "Google.com");
+        anchor.text("Google");
+
+        // Creating Paragraph
+        let par = "<p>This is a paragraph</p>";
+
+        // Creating Table
+        let table = $("<table></table>").append(
+          $(
+            "<tr><td>This is row 1 col 1</td><td>This is row 1 col 2</td><td>This is row 1 col 3</td></tr>"
+          )
+        );
+
+        table.append(
+          $(
+            "<tr><td>This is row 2 col 1</td><td>This is row 2 col 2</td><td>This is row 2 col 3</td></tr>"
+          )
+        );
+
+        table.append(
+          $(
+            "<tr><td>This is row 3 col 1</td><td>This is row 3 col 2</td><td>This is row 3 col 3</td></tr>"
+          )
+        );
+
+        table.addClass("tableClass");
+
+        // Creating Unorderlist
+
+        let unOrderList = $("<ul></ul>");
+        unOrderList.append($("<li>First</li><li>Second</li><li>Third</li>"));
+
+        // Creating Form Controls
+
+        let radioButton = $("<input type='radio'   />");
+        let checkBox = $("<input type='checkbox'   />");
+        let textArea = $("<input type='textarea'   />");
+        let select = $(
+          "<select type='select' ><option>one</option><option>two</option><option>three</option></select>"
+        );
+
+        const myParent = document.createElement("div");
+        const mySpan1 = document.createElement("span");
+        const mySpan2 = document.createElement("p");
+
+        mySpan1.textContent = "I am a span One!";
+        mySpan2.innerHTML = "I am a Paragraph Two!";
+        myParent.append(mySpan1, mySpan2, "Hey I will turn into a text node...");
+        // newDiv.children($('<p></p>').text("hello world"))
+        $("#secondP").after(
+          header1,
+          header2,
+          header3,
+          header3,
+          header4,
+          header5,
+          header6,
+          img2,
+          par,
+          anchor,
+          table,
+          unOrderList,
+          radioButton,
+          checkBox,
+          textArea,
+          select,
+          myParent
+        //   newDiv
+        );
+      });
+
+      $(document).ready(function () {});
+    </script>
+  </head>
+  <body>
+    <div id="myDIV" class="myClass" name="myName">
+      <div id="innerDIV">
+        <p id="firstP">First P</p>
+        <p id="secondP">Second P</p>
+        <div id="myDIV2">
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

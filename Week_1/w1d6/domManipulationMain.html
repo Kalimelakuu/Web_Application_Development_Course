@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <script>
+      // Remove at the given Index
+      function RemoveAtIndex() {
+        $("ul li").eq(1).remove();
+      }
+      // Remove at the first index
+      function RemoveAtFirst() {
+        $("ul li").eq(0).remove();
+      }
+      function RemoveAtFirst() {
+        $("ul li:first").eq(0).remove();
+      }
+      // Remove at the last index
+      function RemoveAtLast() {
+        $("ul li:last-child").remove();
+      }
+      // Remove first child of div
+      function RemoveFirstChild() {
+        $("div").children().first().remove();
+      }
+      // Remove last child of div
+      function RemoveLastChild() {
+        $("div").children().last().remove();
+      }
+      // AddAfterIndexChild child of div
+      function AddAfterIndexChild() {
+        $("div").children().eq(1).after("<p>Hello World</p>");
+      }
+
+      function toggleTheUnderOrderList() {
+        $("ul").toggle();
+      }
+      function changePtoDiv() {
+        $("p").replaceWith("<div></div>");
+      }
+      function tableToUL() {
+        let ul = $("<ul>");
+
+        $("table")
+          .find("tr")
+          .each(function () {
+            $(this)
+              .children("td")
+              .each(function () {
+                let li = $("<li>").text($(this).text());
+                ul.append(li);
+              });
+          });
+        $("div").children().eq(3).remove();
+        $("div").append(ul);
+      }
+
+      function AddRow() {
+        $("table")
+          .children()
+          .prepend("<tr><td>Hello World   </td><td>Hello Home  </td></tr>");
+
+        $("table")
+          .children()
+          .eq(0)
+          .children()
+          .eq(0)
+          .append("<td>Hello World</td><td>Hello Home</td>");
+      }
+      function RemoveRow() {
+        $("table").children().eq(0).children().eq(0).remove();
+      }
+
+      function ReplaceRow() {
+        $("table")
+          .children()
+          .eq(0)
+          .children()
+          .eq(0)
+          .replaceWith("<td><h1>First Row Col 1</h1></td>");
+      }
+      function ToggleRow() {
+        $("table").children().eq(0).children().eq(0).toggle();
+      }
+      // Adding in each children of the div
+      function AddDiv() {
+        $("div")
+          .children()
+          .prepend("<h1>Thank you for your time</h1>");
+
+        
+      }
+      function RemoveDiv() {
+        $("div").children().eq(0).remove();
+      }
+
+      function ReplaceDiv() {
+        $("div").children().eq(0).replaceWith("<b>Hey There</b>");
+      }
+      function toggleDiv() {
+        $("div").toggle();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <p>This is paragraph</p>
+      <ul>
+        <li>First list</li>
+        <li>Second list</li>
+        <li>Third list</li>
+      </ul>
+      <ul>
+        <li>First list</li>
+        <li>Second list</li>
+        <li>Third list</li>
+      </ul>
+      <table>
+        <tr>
+          <td>First Row Col 1</td>
+          <td>First Row Col 2</td>
+        </tr>
+        <tr>
+          <td>Second Row Col 1</td>
+          <td>Second Row Col 2</td>
+        </tr>
+      </table>
+    </div>
+    <button onclick="AddDiv()">Remove the first element</button>
+  </body>
+</html>

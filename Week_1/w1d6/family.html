@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        $("div").children().css({ border: "1px solid red" });
+      });
+    </script>
+    <style>
+      .ancestors * {
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ancestors">
+      <div>
+        div
+        <ul>
+          ul
+          <li>
+            li
+            <span>I am span</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ancestors">
+      <div>
+        div
+        <p>paragraph
+          <span>I am span</span>
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="ancestors">
+        <p>paragraph
+            <span>I am span</span>
+          </p>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("p").css("background-color", "yellow");
+      });
+
+      $(document).ready(function () {
+        $(".foo").css("background-color", "yellow");
+      });
+      $(document).ready(function () {
+        $("p").hide();
+      });
+
+      $(document).ready(function () {
+        $("div").click(function () {
+          alert("Hi there!");
+        });
+      });
+      // get attributes
+      $(document).ready(function () {
+        $("button").click(function () {
+          alert("Href = " + $("#home").attr("href"));
+          alert("Title = " + $("#home").attr("title"));
+        });
+      });
+
+      // get attributes data
+      $(document).ready(function () {
+        $("button").click(function () {
+          alert("Author = " + $("#home").data("author-name"));
+          alert("Year = " + $("#home").data("year"));
+        });
+      });
+
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("#home").attr("title", "New Anchor Title");
+
+          /* Let's get and display changed title */
+          alert("Changed Title = " + $("#home").attr("title"));
+        });
+      });
+
+      $(document).ready(function() {
+      $("button").click(function(){
+         $("#home").data("author-name", "Nuha Ali");
+
+         /* Let's get and display changed author name */
+         alert( "Changed Name = " + $("#home").data("author-name"));
+      });
+   });
+    </script>
+  </head>
+  <body>
+    <h1 class="foo">jQuery element Selector</h1>
+
+    <p>This is p tag</p>
+    <span>This is span tag</span>
+    <div>This is div tag</div>
+
+    <p><a id="home" href="index.htm" title="Tutorials Point">Home</a></p>
+    <button id="btn">Get Attribute</button>
+  </body>
+</html>

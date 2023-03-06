@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            $('#button1').click(function(){
+                $('#div1').fadeOut(1000);
+                $('#div2').fadeOut(2000);
+                $('#div3').fadeOut(3000);
+            })
+        })
+        $(document).ready(function(){
+            $('#button2').click(function(){
+                $('#div1').fadeIn(1000);
+                $('#div2').fadeIn(2000);
+                $('#div3').fadeIn(3000);
+            })
+        })
+        $(document).ready(function(){
+            $('#button3').click(function(){
+                $('#div1').toggle(1000);
+                $('#div2').toggle(2000);
+                $('#div3').toggle(3000);
+            })
+        })
+        $(document).ready(function(){
+            $('#button4').click(function(){
+                $('#div1').animate({
+                    down:'250px',
+                    opacity:'0.5',
+                    height: 'toggle',
+                    width: '150px'
+                })
+
+            })
+        })
+
+        $(document).ready(function(){
+            $('#flip').click(function(){
+                $('#panel').slideDown(5000)
+            })
+            $('#stop').click(function(){
+                $('#panel').stop()
+            })
+        })
+        // using callback
+        $(document).ready(function(){
+            $('#hide').click(function(){
+               $('#phide').hide("fast", function(){
+                alert("The alert is now hidden")
+               })
+            })
+            
+        })
+
+        $(document).ready(function(){
+            $('#hidec').click(function(){
+               $('#phide').css('color','red').slideUp(2000).slideDown(2000)
+            })
+            
+        })
+
+        $(document).ready(function(){
+            $('#showt').click(function(){
+                alert("Text : " + $('#bold').text())
+            });
+            $('#showh').click(function(){
+                alert("Text : " + $('#bold').html())
+            })
+        })
+
+        $(document).ready(function(){
+            $('#showValue').click(function(){
+                alert("The input value is "  + $('#input1').val())
+            })
+        })
+
+        $(document).ready(function(){
+            $('#sett').click(function(){
+                $('#p1').text('Hello world!')
+            }),
+            $('#seth').click(function(){
+                $('#p2').html('<b>Hello world!</b>')
+            }),
+            $('#setv').click(function(){
+                $('#i1').val('Dolly Duck')
+            });
+
+        })
+
+        $(document).ready(function(){
+            $('#btn3').click(function(){
+                $('#p3').text(function(i, orgText){
+                    return "Orginal Text: " +  orgText + " New Text : Hello World ( index :" + i  + ")";
+                })
+            });
+            $('#btn4').click(function(){
+                $('#p4').html(function(i, orgText){
+                    return "Orginal Text: " +  orgText + " New Text : Hello <b>World</b> ( index :" + i  + ")";
+                })
+            })
+        })
+
+        $(document).ready(function(){
+            $('#btn5').click(function(){
+                $('#a5').attr('href',"https://www.w3schools.com/jquery/" )
+            });
+           
+        })
+
+        $(document).ready(function(){
+            $('#btn6').click(function(){
+                let text1 = "<p>Text.</p>";
+                let text2 = $("<p></p>").text("Text.");
+                let text3 = document.createElement("p")
+                text3.innerHTML ="Text."
+                $('#p6').append(text1 , text2 , text3)
+            });
+           
+        })
+
+        $(document).ready(function(){
+            $('#btn7').click(function(){
+               $('#i7').before("<b>Before the image</b>")
+            });
+            $('#btn8').click(function(){
+               $('#i7').after("<b>After the image</b>")
+            });
+           
+        })
+
+        $(document).ready(function(){
+            $('#btn9').click(function(){
+               $('p').remove(".test")
+            });
+          
+        })
+
+        $(document).ready(function(){
+            $('#btn10').click(function(){
+               $('h1, h2, p').toggleClass("blue")
+            });
+          
+        })
+
+        $(document).ready(function(){
+            $('#btn11').click(function(){
+                let text ="";
+                text = "Width of div : " +  $("#div11").width() + "</br>";
+                text += " Height : " + $("#div11").height();
+               $('#div11').html( text )
+            });
+          
+        })
+
+        
+       
+        
+
+    </script>
+
+    <style>
+        div{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            margin-top: 10px;
+        }
+        #flip, #panel{
+            background-color: rgb(66, 63, 63);
+            color: white;
+            text-align: center;
+            border: 1px solid grey;
+            border-radius: 3px;
+            font-size: 18px;
+            width: 100%;
+            padding-top: 1%;
+            
+        }
+        #panel{
+            padding: 50;
+            display: none;
+        }
+        .test{
+            color: Red;
+            font-size: 24px;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="div11" style="background-color: aqua;border: 1px solid blue; width: 400px;height: 200px;"></div>
+    <br>
+    <button id="btn11">Display Dimention of Div</button>
+    <br><br><br><br><hr> 
+
+    <h1 class="blue">Heading 1</h1>
+    <h2 class="blue">  Heading 2</h2>
+
+    <p class="blue">This is paragraph</p>
+
+    <p class="blue" >This is another paragraph</p>
+
+    <p class="blue">This is a paragraph</p>
+
+    <button id="btn10">Toggle class</button>
+    <br><br><br><br><hr>
+
+    <p class="test">This is another paragraph</p>
+
+    <p class="test">This is another paragraph too</p>
+
+    <button id="btn9">Remove all p elements with class = "test"</button>
+
+    <br><br><br><br><hr>
+    <img id="i7" src="p1.jpg" width="100px" alt=""><br><br>
+    <button id="btn7">Insert Before</button>
+    <button id="btn8">Insert After</button>
+
+
+    <p id="p6">This is a paragraph</p>
+
+    <button  id="btn6">Append Text</button><br><br>
+
+    <a  id="a5" href="https://www.w3schools.com">W3schools.com</a>
+    <button id="btn5">Change href Value</button>
+
+    <p id="p3">This is a <b>bold</b> paragraph</p>
+
+    <p id="p4">This is another <b>bold</b> paragraph</p>
+
+    <button id="btn3">Show Old/New Text</button>
+    <button id="btn4">Show Old/New HTML</button>
+
+
+    <p id="p1">This is a paragraph</p>
+    <p id="p2">This is another paragraph</p>
+    Input field : <input  id="i1" type="text" value="Mickey Mouse">
+
+    <br><br>
+    <button id="sett">Set Text</button>
+    <button id="seth">Set HTML</button>
+    <button id="setv">Set Value</button>
+
+
+
+
+    Name: <input id="input1" type="text" value="Mickey Mouse">
+    <button id="showValue">Show Value</button>
+    <br>
+    <p id="bold">This is some <b>bold</b> text in a paragraph</p>
+    <button id="showt">Show Text</button>
+    <button id="showh">Show HTML</button>
+    <br><br>
+
+    <button id="hide">Hide the par slowly</button>
+
+    <button id="hidec">Hide the par slowly with color</button>
+
+    <p id="phide">This is the paragraph to be hidden</p>
+
+    <button id="stop">Stop sliding</button>
+    <div id="flip">Click to slide down</div>
+    <div id="panel">Hello World</div>
+
+
+
+    <button id="button4">Start Animation</button>
+    <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+    <br>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <button id="button1">Click me to fadeOut</button>
+    <button id="button2">Click me to fadeIn</button>
+    <button id="button3">Click me to toggle</button>
+
+    
+    
+</body>
+</html>

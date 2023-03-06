@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      function hideParagraph() {
+        $("#id2").hide();
+        $("#id1").hide();
+      }
+      $(document).ready(function () {
+        $("p").dblclick(function () {
+          $(this).hide();
+          alert("you entered p1");
+        });
+      });
+
+      $(document).ready(function () {
+        $("input").focus(function () {
+          $(this).css("background-color", "yellow");
+        });
+        $("input").blur(function () {
+          $(this).css("background-color", "white");
+        });
+      });
+      $(document).ready(function () {
+        $("p").on({
+          mouseenter: function () {
+            $(this).css("background-color", "blue");
+          },
+          mouseleave: function () {
+            $(this).css("background-color", "yellow");
+          },
+          click: function () {
+            $(this).css("background-color", "red");
+          },
+        });
+      });
+
+      function toggle() {
+        $("p").hide();
+      }
+    
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("#div11").fadeIn();
+          $("#div2").fadeIn("slow");
+          $("#div3").fadeIn(3000);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    Name : <input id="in1" type="text" /> Age : <input id="in2" type="text" />
+    <p id="id2">This is paragraph 1</p>
+    <p id="id1">This is paragraph 2</p>
+    <div
+      id="div1"
+      style="width: 80px; height: 80px; background-color: red"
+    ></div>
+    <br />
+
+    <button onclick="hideParagraph()">Click me to hide</button>
+    <button onclick="toggle()">Toggle</button>
+    <button id="btn1" onclick="fadeIn()">FadeIn</button>
+
+    <hr />
+    <br />
+
+    <p>Demonstrate fadeIn() with different parameters.</p>
+
+    <button id="btn1" onclick="fadeIn()">Click to fade in boxes</button><br /><br />
+
+    <div
+      id="div11"
+      style="width: 80px; height: 80px; background-color: red"
+    ></div>
+    <br />
+    <div
+      id="div2"
+      style="width: 80px; height: 80px; background-color: green"
+    ></div>
+    <br />
+    <div
+      id="div3"
+      style="width: 80px; height: 80px; background-color: blue"
+    ></div>
+  </body>
+</html>

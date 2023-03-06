@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<title>The jQuery Example</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<style>
+    button{margin:10px;width:150px;cursor:pointer}
+    div{ margin:10px;padding:12px; width:125px;}
+ </style>
+
+<script>
+
+    // get text and html value
+   $(document).ready(function() {
+      $("#text").click(function(){
+         alert($("p").text());
+      });
+      $("#html").click(function(){
+         alert($("p").html());
+      });
+   });
+
+   // get input values
+
+   $(document).ready(function() {
+      $("#b1").click(function(){
+         alert($("#name").val());
+      });
+      $("#b2").click(function(){
+         alert($("#class").val());
+      });
+   });
+
+   // change p value
+   $(document).ready(function() {
+      $("#text").click(function(){
+         $("p").text("The quick <b>brown fox</b> jumps over the <b>lazy dog</b>");
+      });
+      $("#html").click(function(){
+         $("p").html("The quick <b>brown fox</b> jumps over the <b>lazy dog</b>");
+      });
+   });
+
+   /// CSS
+   $(document).ready(function() {
+      $("button").click(function(){
+         var color = $("div").css("background-color");
+         $("p").css("color", color);
+      });
+   });
+
+   // change color and font-size
+   $(document).ready(function() {
+      $("button").click(function(){
+         $("div").css({"background-color":"#fb7c7c", "font-size": "25px"});
+      });
+   });
+
+
+</script>
+</head>
+<body>
+   <!-- <p>The quick <b>brown fox</b> jumps over the <b>lazy dog</b></p>
+   
+   <button id="text">Get Text</button>
+   <button id="html">Get HTML</button>
+
+   <hr>
+   <p>Name: <input type="text" id="name" value="Zara Ali"/></p>
+   <p>Class: <input type="text" id="class" value="Class 12th"/></p>
+   
+   <button id="b1">Get Name</button>
+   <button id="b2">Get Class</button> -->
+
+   <hr><br>
+   <p>Click on any of the two buttons to see the result</p>
+   
+   <button id="text">Set Text</button>
+   <button id="html">Set HTML</button>
+
+
+   <hr><br>
+   <p>Click the below button to see the result:</p>
+
+   <div style="background-color:#9c9cff;">Blue</div>
+   <div style="background-color:#93ff93;">Green</div>
+
+   <button>Set CSS Property</button>
+
+   <hr><br>
+
+   <p>Click the below button to see the result:</p>
+
+   <div style="background-color:#9c9cff;">Blue</div>
+   <div style="background-color:#93ff93;">Green</div>
+
+   <button>Set CSS Property</button>
+</body>
+</html>
