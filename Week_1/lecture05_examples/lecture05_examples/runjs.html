@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>When does my code run?</title>
+    <meta charset="utf-8" />
+    
+
+</head>
+
+<body>
+    When does my code run?
+    <button id="btn">OK</button>
+
+
+<script>
+        let x = 3;
+        function f(n) { return n + 1; } 
+        function g(n) { return n - 1; } 
+        x = f(x);
+        alert(x);
+
+        function btnHandler(){
+            alert("Button click!");
+        }
+        const btn = document.getElementById("btn");
+        btn.onclick = btnHandler;
+
+    </script>
+</body>
+
+</html>

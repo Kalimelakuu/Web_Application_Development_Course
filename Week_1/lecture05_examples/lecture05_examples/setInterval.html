@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="delayMsg2();">Click me!</button>
+<span id="output"></span>
+<script>
+
+
+    let timer = null; // stores ID of interval timer
+
+function delayMsg2() {
+    if (timer == null) {
+        timer = setInterval(rudy, 1000);
+    } else {
+        clearInterval(timer);
+        timer = null;
+    }
+}
+
+function rudy() { // called each time the timer goes off
+    document.getElementById("output").innerHTML += " Rudy!";
+}
+</script>
+
+</body>
+</html>

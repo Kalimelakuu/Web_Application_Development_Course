@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Object Properties</title>
+    <meta charset="utf-8" />
+    <style>
+        .highlighted {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("btn").onclick = function(){
+                 var myDiv =  document.getElementById("main");
+                    myDiv.className = "highlighted";
+/* kl051917 */
+                navigator.geolocation.getCurrentPosition(success, fail);
+                console.log('called navigator getcurrentposition');
+
+                function success(position) {
+                    console.log('Longitude:' + position.coords.longitude );
+                    console.log('Latitude:' + position.coords.latitude );
+                }
+
+                function fail(msg) {
+                    console.log(msg.code + msg.message); // Log the error
+                }
+
+            }; 
+        };
+
+    </script>
+</head>
+
+<body>
+    <button id="btn">Change Color</button>
+    <div id="main" class="foo">
+        Hello, Change my color!
+    </div>
+
+</body>
+
+</html>

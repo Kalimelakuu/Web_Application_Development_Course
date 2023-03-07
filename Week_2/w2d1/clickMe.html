@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button onclick="changeText();">Click me!</button>
+    <input id="output" type="text" value="replace me" />
+    <img id="myimg" src="happy.jpg" alt="Happy" width="100px" height="100px" />
+    
+    <script>
+        function changeText(){
+            var output = document.getElementById('output')
+            output.value = "Hello World "
+
+            var img = document.getElementById('myimg')
+            var currentImg = img.src
+
+            if( currentImg.indexOf('sad') == -1){
+                img.src = 'sad.jpg'
+            }else{
+                img.src = 'happy.jpg'
+            }
+        }
+    </script>
+</body>
+</html>

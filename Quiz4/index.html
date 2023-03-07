@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://localhost:49506/8ee4ea609a6346c4cf34c2b621ac79ba.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      function submitAction() {
+        let input_value = $("#row").val();
+        let newArray = [];
+        let temp = "";
+        // this will get the array of ul in the html
+        let ulContent = [];
+        $("ul")
+          .children()
+          .each(function (idx, ele) {
+            ulContent.push($(ele).text());
+          });
+        console.log(ulContent);
+
+        // this will loop through the content of the input filed and put it in the array
+        // by spliting it using "-"
+        for (let i = 0; i < input_value.length; i++) {
+          if (input_value.charAt(i) == "-") {
+            newArray.push(temp);
+            temp = "";
+          } else {
+            temp += input_value[i];
+          }
+        }
+        newArray.push(temp);
+        // if the length of the array is 1 ,it means we are looking for a particular class to be added
+        if (newArray[0] == 'red' ) {
+          $("h4").css('color','red');
+        } else if(newArray[0] == 'smaller'){
+            $('h4').replaceWith('<h5>Color me</h5>')
+        }
+        else if (newArray.length > 1 && newArray[0] == 'list') {
+            // else it means that we have alist to be added in the content if the first word is list
+            
+          let booleanChecker = false; // the boolean will be set to true if the ul element already have the element to be added
+          for (let i = 1; i < newArray.length; i++) {
+            for (let ele of ulContent) {
+              if (ele == newArray[i]) booleanChecker = true;
+            }
+            // else we are going to add the element if it is not already in the html body
+            if (!booleanChecker) {
+              let li = $("<li>");
+              li.text(newArray[i]);
+              $("ul").append(li);
+            }
+          }
+        }
+        console.log(newArray);
+      }
+    </script>
+    <style>
+      .red {
+        color: red;
+      }
+      .smaller {
+        font-size: 10px;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    Input <input id="row" type="text" />
+    <h4>Color Me</h4>
+    <input type="submit" onclick="submitAction();" value="Submit" />
+    <ul></ul>
+  </body>
+</html>

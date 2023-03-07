@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <script>
+      let fruits = ["apple", "pear", "Banana"];
+
+      $(document).ready(function () {
+        let select = $("<select>");
+          select.attr("name", "mySelect");
+        for (let index = 0; index < fruits.length; index++) {
+          let option = $("<option>");
+          
+          option.text(fruits[index]);
+          select.append(option);
+        }
+
+        $("div").append(select);
+      });
+
+      let arrays = [
+        { name: "rose", color: "red" },
+        { name: "lily", color: "white" },
+        { name: "jinnia", color: "pink" },
+      ];
+      $(document).ready(function () {
+        let table = $("<table>");
+
+        for (let index = 0; index < arrays.length; index++) {
+          let row = $("<tr>");
+          for (let ele in arrays[index]) {
+            let td1 = $("<td>");
+            td1.text(ele + " : " + arrays[index][ele]);
+            row.append(td1);
+          }
+          table.append(row);
+        }
+
+        $("div").append(table);
+      });
+
+      function getSelected() {
+        let selected = $("[name='mySelect'] option:selected");
+
+        console.log(selected.length);
+        selected.each(function(){
+          $("div").append("<p>" + $(this).text() + "</p>");
+        })
+      }
+
+      function getChecked() {
+        let selected = $("[name='myCheck']:checked");
+        console.log(selected.length);
+
+        selected.each(function () {
+          $("div").append("<p>" + $(this).next("label").text() + "</p>");
+        });
+      }
+
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="checkbox" name="myCheck" /> <label>Java</label>
+      <input type="checkbox" name="myCheck" /><label>Python</label> 
+      <input type="checkbox" name="myCheck" /> <label>Script</label>
+      <input type="checkbox" name="myCheck" /> <label>PHP</label>PHP
+      <br />
+      <br />
+      <br />
+      <select name="mySelect" id="">
+        <option value="" >Hey1</option>
+        <option value="" >Hey2</option>
+        <option value="" >Hey3</option>
+      </select>
+
+      <button onclick="getChecked()">Get Checked Items</button>
+      <button onclick="getSelected()">Get Selected Items</button>
+    </div>
+  </body>
+</html>

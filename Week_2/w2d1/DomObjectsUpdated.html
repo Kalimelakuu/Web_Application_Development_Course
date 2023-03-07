@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <script>
+      let objectArray = [
+        { Name: "Ram", Age: 30, Skills: ["java", "javascript"] },
+        { Name: "Shyam", Age: 20, Skills: ["python", "c"] },
+      ];
+      $(document).ready(function () {
+        for (let obj of objectArray) {
+          let option = $("<option>");
+          option.text(obj.Name);
+          $("#selectId").append(option);
+          console.log(obj.Name);
+        }
+      });
+      function populate() {
+        for (let ele of objectArray) {
+          if (ele.Name == $("#selectId").val()) {
+            $("#body").html(buildBody(ele));
+          }
+        }
+      }
+
+      function submitAction(){
+        console.log($('input :checked').val())
+        if($('input:checked').val() =='java'){
+            console.log($('#subSkills').length)
+            if($('#subSkills').length == 0){
+                let html = '<div id="subSkills"><label>SubSkills - </label>'+
+                   '<select> <option>Spring</option>  <option>Hibernation</option></select> </div>';
+                $('#submitBtn').before(html)
+            }
+        }else{
+            $('#subSkills').remove()
+        }
+      }
+
+      function buildBody(obj) {
+        let html ='';
+        for (let key in obj) {
+          if (typeof obj[key] != "object" && key != 'Name') {
+            html += '<label> Age : </label>' 
+            html += '<input type="text" value="' + obj.Age + '" />';
+
+          }else if( typeof obj[key] == 'object'){
+            html += '<label> Skills : </label>' 
+             for(let x of obj[key]){
+                html += '<input type="checkbox" value="' + x + '"/> <label> ' + x  + '</label>';
+             }
+          }
+          html += '<br/><br/>';
+        }
+        return html;
+      }
+    </script>
+  </head>
+  <body>
+    <label>Select Student</label>
+    <select id="selectId"></select>
+    <button onclick="populate()">Populate</button>
+    <br />
+    <br />
+    <div id="body"></div>
+
+    <button onclick="submitAction()" id="submitBtn">Submit</button>
+  </body>
+</html>

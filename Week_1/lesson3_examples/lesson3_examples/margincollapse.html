@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Margin Collapse</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .module {
+            width: 100%;
+            height: 50px;
+        }
+        
+        .module__top {
+            margin-bottom: 20px; /*margin-bottom: -25px; what's gonna happen?*/
+            background-color: #f38a6d;
+            /*display: inline-block;*/
+        }
+        
+        .module__bottom {
+            margin-top: 30px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="module module__top">Collapsing Margins between adjacent elements (height: 50px; margin-bottom: 20px;)</div>
+    <div class="module module__bottom">Example text.(height: 50px; margin-top: 30;)</div>
+
+</body>
+
+</html>

@@ -8,6 +8,14 @@
     <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 
     <script>
+     
+
+      // animate
+      $(document).ready(function () {
+        $("#btna").click(function () {
+          $("div").animate({ left: "250px" });
+        });
+      });
       // Remove at the given Index
       function RemoveAtIndex() {
         $("ul li").eq(1).remove();
@@ -36,7 +44,7 @@
         $("div").children().eq(1).after("<p>Hello World</p>");
       }
 
-      function toggleTheUnderOrderList() {
+      function toggleTheUnOrderList() {
         $("ul").toggle();
       }
       function changePtoDiv() {
@@ -71,6 +79,18 @@
           .eq(0)
           .append("<td>Hello World</td><td>Hello Home</td>");
       }
+      function AddRow2() {
+        $("table")
+          .children()
+          .prepend("<tr><td>Hello World   </td><td>Hello Home  </td></tr>");
+
+        $("table")
+          .children()
+          .eq(0)
+          .children()
+          .eq(0)
+          .append("<td>Hello World</td><td>Hello Home</td>");
+      }
       function RemoveRow() {
         $("table").children().eq(0).children().eq(0).remove();
       }
@@ -88,11 +108,7 @@
       }
       // Adding in each children of the div
       function AddDiv() {
-        $("div")
-          .children()
-          .prepend("<h1>Thank you for your time</h1>");
-
-        
+        $("div").children().prepend("<h1>Thank you for your time</h1>");
       }
       function RemoveDiv() {
         $("div").children().eq(0).remove();
@@ -104,21 +120,36 @@
       function toggleDiv() {
         $("div").toggle();
       }
+       // loop through the child
+       function addElement() {
+        $("div").children().each(function (idx, element) {
+         
+          if (idx == 2) {
+            let p = $("<p>");
+            p.text("Add Paragrph using for loop");
+            $(element).before(p)
+          }
+          
+        });
+      }
     </script>
   </head>
   <body>
     <div id="div1">
       <p>This is paragraph</p>
+
       <ul>
         <li>First list</li>
         <li>Second list</li>
         <li>Third list</li>
       </ul>
+
       <ul>
         <li>First list</li>
         <li>Second list</li>
         <li>Third list</li>
       </ul>
+
       <table>
         <tr>
           <td>First Row Col 1</td>
@@ -129,7 +160,18 @@
           <td>Second Row Col 2</td>
         </tr>
       </table>
+
     </div>
-    <button onclick="AddDiv()">Remove the first element</button>
+    <br /><br />
+    <div
+      style="
+        background: #98bf21;
+        height: 100px;
+        width: 100px;
+        position: relative;
+      "
+    ></div>
+    <button id="btna">Start Animation</button>
+    <button onclick="addElement()">Remove the first element</button>
   </body>
 </html>

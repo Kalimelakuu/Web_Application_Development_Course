@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta charset="utf-8" />
+
+    <script>
+
+        function changeText() {
+            var textbox = document.getElementById("output");
+            textbox.value = "Hello, world!";
+            var imgTag = document.getElementById("myimg");
+            var currentImg = imgTag.src;
+            
+            console.log(currentImg);
+            console.log(currentImg.indexOf("sad") != -1);
+            if(currentImg.indexOf("sad") != -1){
+                imgTag.src = "happy.jpg";
+            }else{
+                imgTag.src = "sad.jpg";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <button onclick="changeText();">Click me!</button>
+    <input id="output" type="text" value="replace me" />
+    <img id="myimg" src="happy.jpg" alt="Happy" width="100px" height="100px" />
+</body>
+
+</html>

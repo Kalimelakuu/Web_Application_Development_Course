@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Problems with reading/changing styles</title>
+    <meta charset="utf-8" />
+    <style>
+        #clickme {
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById("clickme").onclick = biggerFont;
+        };
+        function biggerFont() {
+            var size = parseInt(document.getElementById("clickme").style.fontSize);
+            console.log("size: " + size);
+ 	        size += 4; 
+            document.getElementById("clickme").style.fontSize = size + "pt";           
+        }
+    </script>
+
+</head>
+
+<body>
+    <button style="font-size:16px" id="clickme">Click Me</button>
+</body>
+
+</html>

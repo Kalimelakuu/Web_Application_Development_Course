@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        let array = [{plant:"daffodil",color:"yellow"},
+        {plant:"zinnia",color:"purple"},
+        {plant:"chrysanthumum",color:"pink"},
+        {plant:"lily",color:"pink"},
+        {plant:"daffodil",color:"green"}]
+    </script>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    header {
+      display: flex;
+      background-color: blue;
+      justify-content: space-between;
+      color: white;
+      padding-left: 155px;
+      padding-right: 155px;
+    }
+
+    #img1 {
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      border: 1px solid grey;
+      object-fit: cover;
+      margin-left: 40%;
+    }
+
+        
+    #img2 {
+      width: 50px;
+      height: 50px;
+      border: 1px solid grey;
+      object-fit: cover;
+      
+    }
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .selectBoxDIV {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <header>
+      <label for="">Home</label>
+      <label for="">Mission</label>
+      <label for="">Career</label>
+      <label for="">ContactUs</label>
+    </header>
+
+    <div class="container">
+      <div>
+        <img id="img1" src="happy.jpg" alt="" />
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+          voluptates beatae illo totam autem! Iste, quibusdam obcaecati eaque
+          natus eos adipisci corrupti impedit dolor aut nam. Libero eius magni
+          inventore!
+        </p>
+      </div>
+
+      <div class="box">
+        <input type="text" id="selectNumber" />
+        <button onclick="delayColor()">Delay Color</button>
+        <input type="text" id="selectedKey" />
+        <button onclick="filter()">Filter</button>
+      </div>
+
+      <div class="selectBoxDIV">
+        <div>
+          <select name="" id="srcSelect" multiple style="width: 100%"></select>
+        </div>
+        <div style="justify-self: center; align-self: center">
+          <button onclick="move()">Move</button>
+        </div>
+        <div>
+          <select name="" id="destSelect" multiple style="width: 100%"></select>
+        </div>
+      </div>
+
+      <div style="text-align: center">
+        <label>****</label>
+        <div>
+          <div style="float: right">****</div>
+          <div style="float: left">****</div>
+        </div>
+
+        <div style="clear: both">
+          <label>****</label>
+        </div>
+        <img src="./happy.jpg" style="position:relative;bottom:42px;" width="25px" height="25px" />
+      </div>
+
+    </div>
+  </body>
+</html>

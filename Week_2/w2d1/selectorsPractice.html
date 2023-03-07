@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var elem = document.documentElement;
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          /* Safari */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE11 */
+          elem.msRequestFullscreen();
+        }
+      }
+
+      function closeFullscreen() {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          /* Safari */
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          /* IE11 */
+          document.msExitFullscreen();
+        }
+      }
+    </script>
+    <style>
+      /* Select and style every <p> element where the parent is a <div> element: PARENT */
+      div > p {
+        background-color: yellow;
+      }
+      /* Select and style the first <p> element that are placed immediately after <div> elements: SIBLING */
+      div + p {
+        background-color: yellow;
+      }
+      /* Set a background color for all <ul> elements that are preceded by a <p> element with the same parent: P BIG SIBLING */
+      p ~ ul {
+        background: #ff0000;
+      }
+      /* Style all <a> elements with a target attribute: */
+      a[target] {
+        background-color: yellow;
+      }
+      /* Style <a> elements with a target="_blank": */
+      a[target] {
+        background-color: yellow;
+      }
+
+      /* 
+Select and style elements with a title attribute containing the word "flower": */
+
+      [title~="flower"] {
+        background-color: yellow;
+      }
+
+      /* Select and style elements, where the lang attribute's value starts with "en": */
+
+      [lang|="en"] {
+        background-color: yellow;
+      }
+      /* Set a background color on all <div> elements that have a class attribute value that begins with "test": */
+
+      div[class^="test"] {
+        background: #ffff00;
+      }
+
+      /* Set a background color on all <div> elements that have a class attribute value that ends with "test": */
+
+      div[class$="test"] {
+        background: #ffff00;
+      }
+      /* Select and style the active link: */
+
+      a:active {
+        background-color: yellow;
+      }
+
+      /* Insert some text after the content of each <p> element: */
+
+      p::after {
+        content: " - Remember this";
+      }
+      /* Set the height and width for all checked <input> elements: */
+      input:checked {
+        height: 50px;
+        width: 50px;
+      }
+      /* Select and style every <p> element that is the first child of its parent: */
+
+      p:first-child {
+        background-color: yellow;
+      }
+      p::first-letter {
+        font-size: 200%;
+        color: #8a2be2;
+      }
+      input:focus {
+        background-color: yellow;
+      }
+      /* Standard syntax */
+      :fullscreen {
+        background-color: yellow;
+      }
+      /* Standard syntax */
+      :fullscreen {
+        background-color: yellow;
+      }
+
+      /* Style the button */
+      button {
+        padding: 20px;
+        font-size: 20px;
+      }
+      p:last-child {
+        background: #ff0000;
+      }
+      ::marker {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo of the element > element selector</h1>
+
+    <div>
+      <p>I live in Duckburg.</p>
+      <p>I live in Duckburg.</p>
+      <h2>My name is Donald</h2>
+      <p>I live in Duckburg.</p>
+    </div>
+
+    <div>
+      <span><p>I will not be styled.</p></span>
+    </div>
+
+    <p>My best friend is Mickey.</p>
+
+    <p>The first paragraph.</p>
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+
+    <h2>Another list</h2>
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+
+    <a href="https://www.w3schools.com">W3schools.com</a><br />
+    <a href="https://www.google.com" target="_blank">Google.com</a><br />
+    <a href="https://www.microsoft.com" target="_blank">Microsoft.com</a>
+
+    <div class="first_test">The first div element.</div>
+    <div class="second">The second div element.</div>
+    <div class="test">The third div element.</div>
+    <div class="test_ex">The fourth div element.</div>
+    <p class="test">This is a paragraph.</p>
+    <p class="test_ex">This is a paragraph.</p>
+
+    <form action="">
+      <input type="radio" checked="checked" value="male" name="gender" />
+      Male<br />
+      <input type="radio" value="female" name="gender" /> Female<br />
+      <input type="checkbox" checked="checked" value="Bike" /> I have a bike<br />
+      <input type="checkbox" value="Car" /> I have a car
+    </form>
+    <button onclick="openFullscreen();">Open Fullscreen</button>
+    <button onclick="closeFullscreen();">Close Fullscreen</button>
+    
+  </body>
+</html>
