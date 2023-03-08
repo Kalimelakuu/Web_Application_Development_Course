@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function scope example</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+  </head>
+<body>
+
+  <script>
+
+  
+    const x = 1;
+
+    function a() {
+      const y = 2;
+    }
+
+    function b() {
+      const z = 3;
+    }
+
+    function output(value) {
+      const para = document.createElement('p');
+      document.body.appendChild(para);
+      para.textContent = `Value: ${value}`;
+    }
+
+    $(document).ready(function(){
+        output(x)
+
+        // will cause reference error
+        // output(y);
+        // output(z);
+
+        a()
+        b()
+    })
+  </script>
+</body>
+</html>

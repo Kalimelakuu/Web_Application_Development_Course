@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        chooseName(0,3);
+      });
+      const names = [
+        "Chris",
+        "Li Kang",
+        "Anne",
+        "Francesca",
+        "Mustafa",
+        "Tina",
+        "Bert",
+        "Jada",
+      ];
+      const para = document.createElement("p");
+      // Add your code here
+      function chooseName() {
+        let randomNumber = Math.floor(Math.random() * names.length) + 1;
+        para.innerHTML = names[randomNumber];
+        $("body").append(para);
+      }
+
+      function chooseName(start, end) {
+        let randomNumber = getRandomInt(start,end);
+        para.innerHTML = names[randomNumber];
+        $("body").append(para);
+      }
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+      }
+
+      // Don't edit the code below here!
+    </script>
+  </head>
+  <body></body>
+</html>

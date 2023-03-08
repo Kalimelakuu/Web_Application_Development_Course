@@ -53,7 +53,8 @@
       }
 
       function getChecked() {
-        let selected = $("[name='myCheck']:checked");
+        let selected = $("input:checked");
+        //let selected = $("[name='myCheck']:checked");
         console.log(selected.length);
 
         selected.each(function () {

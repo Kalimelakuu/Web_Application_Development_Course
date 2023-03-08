@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <title>Document</title>
+
+    <script>
+      let obj = [
+        { humidity: 20, speed: 30 },
+        { humidity: 10, speed: 40 },
+      ];
+
+      let obj2 = [
+        { color: "red", flower: "rose", plant: "Shrub" },
+        { color: "red", flower: "jinnia", plant: "shrub" },
+      ];
+      $(document).ready(function () {
+        makeSelectOptions(obj2);
+        getButton();
+      });
+
+      function makeSelectOptions(array) {
+        let select = $("<select multiple>");
+        if (array.length != 0) {
+          for (let key in array[0]) {
+            let option = $("<option>");
+            option.text(key);
+            select.append(option);
+          }
+        }
+        $("body").append(select);
+        $("body").append("<br><br>");
+      }
+
+
+
+        function writeTheSelectedValues(){
+          let select = $('option:selected');
+          let html="";
+          $('label').remove()
+          console.log(select)
+          select.each(function(){
+
+              if($('label').length == 0){
+                  $('body').append('<br><br>')
+                  html +=" " + '<label >'+ $(this).val() + '</label>'
+                  $('body').append(html)
+                  $('bod')
+              }else{
+                $('label').append($(this).val())
+              }
+          })
+         
+
+        }
+
+      function getButton() {
+        let html =
+          '<button onclick="writeTheSelectedValues()" >See The Selected Value</button>';
+        $("body").append(html);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
