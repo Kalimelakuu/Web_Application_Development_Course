@@ -1,3 +1,5 @@
+console.log("**************************(PLEASE RUN EACH CODE SEPARTELY)************************************")
+
 console.log("*********************(This function in and out side of objcect)*********************************************")
 
 // if 'this' key word is only in function it will implies to global function
@@ -196,6 +198,34 @@ objArrow.b();
 arrowarray();
 console.log(objArrow.f());
 
+
+console.log('************************Arrow 2******************************************')
+let objArrow = {
+    a: 1,
+  
+    b: () => console.log("B Inside Object arrow ", this),
+  
+    f: function () {
+      let arrow = () => console.log("F Inside Object arrow ", this);
+      arrow();
+      return this;
+    },
+  };
+  
+  //  F  = ARROW ->  PARENT NAMED FUNCTION(this) -> OBJECT
+  //  B  = ARROW -> {}
+  
+  function parentFunction() {
+    let arrow = () => console.log("F Inside Object arrow ", this);
+    arrow();
+    return this;
+  }
+  // arrow -> parentFunction -> global
+  parentFunction();
+  
+  let arrow = () => console.log("F Inside Object arrow ", this);
+  // arrow -> {}
+
 console.log('************************INNER******************************************')
 let innerFun = {
   b: 1,
@@ -218,7 +248,7 @@ function getThis(){
 }
 
 const obj1= {name: 'obj1'}
-const obj2= {name: 'obj2'}
+const obj5= {name: 'obj2'}
 
 // this is assigened to the obj1
 obj1.getThis = getThis;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        createEventHandeler();
+      });
+      function createEventHandeler() {
+        function makeSizer(size) {
+          return function () {
+            document.body.style.fontSize = size + "px";
+          };
+        }
+        document.getElementById("size-12").onclick = makeSizer(12);
+        document.getElementById("size-16").onclick = makeSizer(16);
+        document.getElementById("size-18").onclick = makeSizer(18);
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#" id="size-12">Size 12</a>
+    <a href="#" id="size-16">Size 16</a>
+    <a href="#" id="size-18">Size 18</a>
+  </body>
+</html>
