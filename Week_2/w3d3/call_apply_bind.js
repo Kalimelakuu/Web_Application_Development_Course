@@ -49,7 +49,7 @@ function saySomething(message) {
   return this.name + " is " + message;
 }
 var person4 = { name: "John" };
-console.log(saySomething.apply(person4, ["awesome"]));
+console.log(saySomething.call(person4, "awesome"));
 
 // example 2
 
@@ -65,7 +65,7 @@ var you = {
   last: "Xing",
 };
 const you1 = me1.getFullName.bind(you);
-console.log(you1());
+console.log( "=>"+ me1.getFullName.bind(you)());
 console.log(me1.getFullName.call(you));
 console.log(me1.getFullName.apply(you));
 
