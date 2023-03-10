@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is the HOME page</h1>
+    <form action="/postMethod" method="post">
+        <label for="firstName">FirstName</label>
+        <input type="text" name="firstName">
+
+        <br><br><br>
+
+        <label for="firstName">LastName</label>
+        <input type="text" name="lastName">
+          <br><br><br>
+        <label for="firstName">Female</label>
+        <input type="radio" name="gender" value="female">
+
+        <br><br><br>
+
+        <label for="firstName">Male</label>
+        <input type="radio" name="gender" value="male">
+
+        <br><br><br>
+
+        <select name="skills" multiple>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="React">React</option>
+            <option value="Vue">Vue</option>
+        </select>
+        <br><br><br>
+
+        <textarea name="comment" id="" cols="30" rows="10"></textarea>
+
+        <br><br><br>
+
+        <input type="submit" value="Submit Form">
+
+
+    </form>
+    <div>
+        <ul id="formList"></ul>
+    </div>
+
+    <script>
+
+        fetch('form-values')
+        .then(response => response.json())
+        .then(data => displayValuesInHTML(data))
+        .catch(err=> console.log(err))
+
+        function displayValuesInHTML(formValues){
+           
+            let ul = document.getElementById('formList')
+            ul.innerHTML = '';
+
+
+            for(let val of formValues){
+                let li = document.createElement('li')
+                li.textContent =`First Name : ${val.firstName} 
+                                Last Name  : ${val.lastName}
+                                Gender : ${val.gender}
+                                Skills : ${val.skills}
+                                Comment : ${val.comment}`;
+                ul.appendChild(li)
+            }
+            
+        }
+
+    </script>
+    
+</body>
+</html>

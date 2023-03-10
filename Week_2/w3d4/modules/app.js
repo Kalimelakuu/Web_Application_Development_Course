@@ -1,17 +1,6 @@
-let obj1 = {
-    number: 1,
-    string :'Hello',
-    object : {
-        firstname:"Kal",
-        lastname:"Hailemariam"
-    }
-}
+let Module = require('./modules')
 
-let string = "This is orgianl string"
+Module.Module1.anotherMethod()
 
-function changeValue(newString){
-    string = newString
-    console.log(string)
-}
 
-module.exports = {obj1, string , changeValue}
+console.log(Module.Module1.extension())
