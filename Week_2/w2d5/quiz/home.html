@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1"></h1>
+    <form action="/postSelectValues" method="post">
+      <div id="div1"></div>
+      <br /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <a href="/">LogOut</a>
+  </body>
+
+  <script>
+    fetch("userRole")
+      .then((response) => response.json())
+      .then((data) => {
+        let h1 = document.getElementById("header1");
+        h1.textContent = "Welcome " + data[data.length-1].toUpperCase();
+      })
+      .catch((err) => console.log(err));
+
+    fetch("myarray")
+      .then((response) => response.json())
+      .then((data) => displayCategory(data))
+      .catch((err) => console.log(err));
+
+    function displayCategory(object) {
+      let div = document.getElementById("div1");
+      let select = document.createElement("select");
+      select.setAttribute("name", "fruits");
+      for (let key in object) {
+        for (let x in object[key]) {
+          let option = document.createElement("option");
+          option.textContent = object[key][x];
+          select.appendChild(option);
+          console.log(x);
+        }
+      }
+
+      div.appendChild(select);
+    }
+  </script>
+</html>

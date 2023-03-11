@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="header1">"welcome to "CATEGORY"</h1>
+    <a href="/">LogOut</a>
+</body>
+
+<script>
+     fetch("userRole")
+      .then((response) => response.json())
+      .then((data) => {
+        let h1 = document.getElementById("header1");
+        h1.textContent = "Welcome to the Category  " + data[data.length-1].toUpperCase();
+       
+      })
+</script>
+</html>
