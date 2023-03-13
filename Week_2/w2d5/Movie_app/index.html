@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- // <style src="styles.css"></style> -->
+</head>
+<body>
+    <div class="container">
+        <div>
+            <button id="popular-button">Popular Movies</button>
+            <button id="top-rated-button">Top Rated Movies</button>
+          </div>
+		<div class="header">
+			<h1>Movie App</h1>
+		</div>
+		<div class="movie-list">
+			<table id="movie-table">
+				<thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Overview</th>
+                      <th>Release Date</th>
+                      <th>Vote Average</th>
+                    </tr>
+                  </thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+ 
+
+  <script>
+    $(document).ready(() => {
+      $('#popular-button').click(() => {
+        $.get('/api/movies/popular', (data) => {
+          displayMovies(data.results);
+        });
+      });
+
+      $('#top-rated-button').click(() => {
+        $.get('/api/movies/top_rated', (data) => {
+          displayMovies(data.results);
+        });
+      });
+
+      function displayMovies(movies) {
+        $('#movie-table tbody').empty();
+        movies.forEach((movie) => {
+          const row = `
+            <tr>
+              <td>${movie.title}</td>
+              <td>${movie.overview}</td>
+              <td>${movie.release_date}</td>
+              <td>${movie.vote_average}</td>
+            </tr>
+          `;
+          $('#movie-table tbody').append(row);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

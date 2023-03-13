@@ -4,7 +4,7 @@ var path = require("path");
 
 let myArray = {
     guest: ['Nuts', "Seeds"],
-    owner: ['Vegetables', 'Nuts', 'Fruits', "Seeds"]
+    owner: ['Vegetables',  'Fruits', ]
 };
 let loggedUser;
 let userHasAccess = false;
