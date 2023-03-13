@@ -1,0 +1,22 @@
+<ul>
+        <% for(let ele in myTabel) { %>
+            <li><%=ele%></li>
+          <% } %>
+
+    </ul>
+    <table>
+        <th>
+            <% for(let ele in myTabel) { %>
+                <tr><%=ele%></tr>
+              <% } %>
+        </th>
+        
+            <% for(let ele in myTabel) { %>
+                <tr>
+                <%    for(let element of myTabel[ele]){ %>
+                    <td><%=element%></td>
+                    <% } %>
+                </tr>
+              <% } %>
+        </tr>
+    </table>
