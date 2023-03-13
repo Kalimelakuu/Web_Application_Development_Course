@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function playGame(userMove) {
+        const options = ["rock", "paper", "scissor"];
+        const computerGuess = Math.floor(Math.random() * 3) ;
+        console.log(userMove)
+        let result;
+
+        if (options[computerGuess] == userMove) {
+            result ='Tie'
+          //result = `You choose ${userMove} and the computer choose ${options[computerGuess]} this is TIE`;
+        } else if (
+          (options[computerGuess] == "paper" && userMove == "scissor") ||
+          (options[computerGuess] == "scissor" && userMove == "rock") ||
+          (options[computerGuess] == "rock" && userMove == "paper")
+        ) {
+         // result = `You choose ${userMove} and the computer choose ${options[computerGuess]} the USER WON`;
+         result = 'User Won!';
+        } else {
+            result = 'Computer won!';
+           // result = `You choose ${userMove} and the computer choose ${options[computerGuess]} the COMPUTER WON`;
+        }
+        const resultElement = document.getElementById('para1');
+	    resultElement.textContent = `You chose ${userMove}. The computer chose ${options[computerGuess]}. ${result}`;
+
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Rock Paper Scissor</h1>
+    <button id="btn1" onclick="playGame('rock')">Rock</button>
+    <button id="btn2" onclick="playGame('paper')">Paper</button>
+    <button id="btn3" onclick="playGame('scissor')">Scissor</button>
+
+    <p id="para1"></p>
+  </body>
+</html>

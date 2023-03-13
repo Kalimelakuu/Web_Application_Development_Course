@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+   
+    <script>
+       let generatatedArray = []
+       let round = 1;
+        function generator(){
+            generatatedArray =[]
+            let count = 0;
+            let res = '';
+            while(count < round*2){
+                generatatedArray.push(Math.floor(Math.random() * round*10) + "")
+                res +=generatatedArray[count]  + "   ";
+                count++;
+            }
+            let par = document.getElementById('par1')
+            par.textContent = res
+            setTimeout(() => {
+                par.textContent = "Please Guess The Number"
+            }, 3000);
+            
+        }
+        function getValues(){
+           let input = document.querySelector('#input1')
+           let res = document.querySelector('#result')
+
+           let array = input.value.split("")
+           
+           if( array.length != generatatedArray.length){
+              res.textContent = "You Have Entered The Wrong Length Sequence"
+           }else{
+             for(let i = 0 ; i < array.length ;i++){
+                if( array[i] != generatatedArray[i]) {
+                    res.textContent = "You Have Entered The Wrong Number Sequence"
+                    
+                }else if(array[i] == generatatedArray[i] && i == array.length-1){
+                    res.textContent = "You Won!!!"
+                    startOver()
+                }
+                
+             }
+             
+           }
+           
+        }
+        function startOver(){
+            let res = document.querySelector('#result')
+            let h1 = document.querySelector('#h1')
+            round++;
+            res.textContent = "Please Click The Generator To Play "  +  round +  " Round ";
+            h1.textContent = "You've Got 5 Sec to Remeber For Round "+ round
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1 id="h1">You've Got 5 Sec to Remeber For Round 1</h1>
+    <h2>The Numbers are :</h2>
+    <input type="submit" value="Generate The Numbers" onclick="generator()">
+    <p id="par1"></p>
+    Enter the numbers in sequence :  <input type="text" id="input1">
+    <input type="submit" value="SUBMIT" onclick="getValues()">
+
+    <p id="result"></p>
+    
+</body>
+</html>

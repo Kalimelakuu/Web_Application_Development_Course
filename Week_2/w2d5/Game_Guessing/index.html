@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <script>
+         let num = Math.floor(Math.random() * 10) + 1;
+         console.log(num)
+         let counter = 0;
+        $(document).ready(function(){
+           console.log(counter)
+        })
+        function Reset(){
+            counter = 0;
+            $('#par1').text('')
+            $('#reset').remove()
+            
+
+        }
+        function guessingTheNumber(){
+           
+            if( counter == 10){
+                $('#par1').text('Game Over !!!!')
+                let html = '<input type="submit" id="reset" value="Reset" onclick="Reset()">'
+                $('body').append(html)
+            }
+            else if( $('input').val() == num ){
+                $('#par1').text('You Won !!!!')
+                console.log("hey")
+            }else if($('input').val() > num){
+                $('#par1').text('Please Decrease Your Guess ' + "Remaining "+ counter + " chances")
+                counter++;
+            }else if($('input').val() < num){
+                $('#par1').text('Please Increase Your Guess ' + "Remaining "+ counter + " chances")
+                counter++;
+            }
+        }
+       
+
+
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Gaming </h1>
+    <label for=""> Please Enter your Guess : </label>
+    <input type="text">
+    <br>
+    <input type="submit" onclick="guessingTheNumber()">
+
+    <p id="par1"></p>
+    <h3 id="h3"></h3>
+    
+    
+</body>
+</html>
