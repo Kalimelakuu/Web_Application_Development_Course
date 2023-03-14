@@ -26,5 +26,8 @@ let form = { name: 'Ram', age: '30', skills: ['java', 'javascript'] ,selectedSki
 
 
 app.get("/admin", function (req, res, next) {
-    res.render("index", {form : { name: 'Ram', age: '30', skills: ['java', 'javascript'] ,selectedSkill:'javascript'}})
+    res.render("index", {form : {
+ name: { value: 'Ram', isEdit: false },
+ age: { value: 30, isEdit: true }, skills: { value: ['java', 'javascript'], isEdit: true }
+}})
 });

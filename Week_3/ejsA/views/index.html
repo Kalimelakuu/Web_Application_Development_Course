@@ -8,24 +8,49 @@
 </head>
 <body>
     <!-- <% %> -->
-    <% let  selected = form.selectedSkill %>
-    <% for(let formValues in form) { %>
-         <% if( typeof form[formValues]  != 'object' && formValues != "selectedSkill") { %>
-              <label><%= formValues %></label> 
-             <input value=<%= form[formValues]%>  type='text' />
-             <% } else if(typeof form[formValues]  == 'object') {%>
-                <select>
-                    <%for(let val of form[formValues]){  %>
-                        <% if(val == selected){%>
-                            <option selected value=<%= val %>  ><%= val %></option> %>
-                            <% }else{%>
-                            <option selected value=<%= val %>  ><%= val %></option> %>
-                            <% }%>
-                    <% } %>
-                </select>
-            <%} %>  
-                
-    <%}%>
+    <% for( let key in form ) { %>
+        <!-- /this will write the name age and skills (KEY) values of the object forms -->
+        <label for="" ><%= key%></label>
+        <!-- this is avaribale holds true or false by checking values(form[key]) then isEdit is the key for the second object -->
+        <% let isEditabale = form[key].isEdit%>
+        <!-- this will check if the value of the second object is object (if it is object then it will make option selection )-->
+        <% if (typeof form[key].value == 'object') { %>
+            <!-- if the option is editable it will just print the values -->
+           <% if (isEditabale) { %>
+             <select name="" id="" >
+                <% for( let i = 0; i < form[key].value.length; i++ ) { %>
+                      <option><%= form[key].value[i] %></option>
+                <% } %>
+            </select>
+           <% } else {%>
+            <!-- else we put the disabled value in the select form  -->
+            <select name="" id="" disabled>
+                <% for( let i = 0; i < form[key].value.length; i++ ) { %>
+                      <option><%= form[key].value[i] %></option>
+                <% } %>
+            </select>
+            <% } %>
+
+
+        <% } else { %>
+            <!-- if the value is not object then it will check if it is editable or not-->
+            <% if (isEditabale) { %>
+                <!-- if the text field is editable it will just make the input form -->
+                <input type="text" value=<%= form[key].value%>>
+                <br><br>
+            <% } else { %>
+                <!-- if the text field is not editable it will just make the input form with disable  -->
+                <input disabled type="text" value=<%= form[key].value%>>
+            <%}%>        
+       <%}%>
+        
+        
+       
+    <% } %>
+
+
+
+
     
 
 </body>

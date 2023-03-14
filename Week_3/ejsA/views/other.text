@@ -20,3 +20,36 @@
               <% } %>
         </tr>
     </table>
+
+
+    // Dynamic form
+// if the field isEdit:true, then show dropdown for array,
+// otherwise show textfield
+//if isEdit:false -> show label 
+let form = {
+ name: { value: 'Ram', isEdit: false },
+ age: { value: 30, isEdit: true }, skills: { value: ['java', 'javascript'], isEdit: true }
+}
+
+
+
+
+
+    <% let  selected = form.selectedSkill %>
+    <% for(let formValues in form) { %>
+         <% if( typeof form[formValues]  != 'object' && formValues != "selectedSkill") { %>
+              <label><%= formValues %></label> 
+             <input value=<%= form[formValues]%>  type='text' />
+             <% } else if(typeof form[formValues]  == 'object') {%>
+                <select>
+                    <%for(let val of form[formValues]){  %>
+                        <% if(val == selected){%>
+                            <option selected value=<%= val %>  ><%= val %></option> %>
+                            <% }else{%>
+                            <option selected value=<%= val %>  ><%= val %></option> %>
+                            <% }%>
+                    <% } %>
+                </select>
+            <%} %>  
+                
+    <%}%>
