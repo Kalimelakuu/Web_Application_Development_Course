@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+   
+
+   // this will fetch the data from the array 
+      function displayHistory() {
+        fetch('userData')
+        .then((response) => response.json())
+        .then((data) => getData(data))
+        .catch((err) => console.log(err))
+        
+      }
+
+      // this will display the data in the html file
+      function getData(HistoryFile){
+        let par = document.getElementById("par1");
+        let div = document.getElementById("div1");
+        div.textContent = ""
+        let html = '{  '
+        for (let ele of HistoryFile) {
+          html +=  ele  + " ,";
+          
+        }
+        html += '  }'
+        par.textContent = "Result"
+        div.append(html)
+
+      }
+
+      
+    </script>
+  </head>
+
+  <body>
+    <form action="/postMethod" method="post">
+      <input type="text" name="numbers" />
+      <input type="radio" name="OddOrEven" value="even" />
+      Even
+      <input type="radio" name="OddOrEven" value="odd" />
+      Odd
+
+      <input type="submit" value="Submit" />
+    </form>
+    <p id="par1">No History Yet</p>
+    <div id="div1">
+
+    </div>
+    <button onclick="displayHistory()">Display History</button>
+  </body>
+</html>
