@@ -13,28 +13,33 @@
         <label for="" ><%= key%></label>
         <!-- this is avaribale holds true or false by checking values(form[key]) then isEdit is the key for the second object -->
         <% let isEditabale = form[key].isEdit%>
+       
         <!-- this will check if the value of the second object is object (if it is object then it will make option selection )-->
-        <% if (typeof form[key].value == 'object') { %>
-            <!-- if the option is editable it will just print the values -->
+        <% if (Array.isArray(form[key].value)) { %>
+            
+                <!-- if the option is editable it will just print the values -->
            <% if (isEditabale) { %>
-             <select name="" id="" >
-                <% for( let i = 0; i < form[key].value.length; i++ ) { %>
-                      <option><%= form[key].value[i] %></option>
-                <% } %>
-            </select>
-           <% } else {%>
-            <!-- else we put the disabled value in the select form  -->
-            <select name="" id="" disabled>
-                <% for( let i = 0; i < form[key].value.length; i++ ) { %>
-                      <option><%= form[key].value[i] %></option>
-                <% } %>
-            </select>
-            <% } %>
+            <select name="" id="" >
+               <% for( let i = 0; i < form[key].value.length; i++ ) { %>
+                     <option><%= form[key].value[i] %></option>
+               <% } %>
+           </select>
+          <% } else {%>
+           <!-- else we put the disabled value in the select form  -->
+           <select name="" id="" disabled>
+               <% for( let i = 0; i < form[key].value.length; i++ ) { %>
+                     <option><%= form[key].value[i] %></option>
+               <% } %>
+           </select>
+           <% } %>
+        <%} else if (typeof form[key].value == 'object') { %>
+          
+            
 
-
-        <% } else { %>
+        <% } else  { %>
             <!-- if the value is not object then it will check if it is editable or not-->
             <% if (isEditabale) { %>
+               
                 <!-- if the text field is editable it will just make the input form -->
                 <input type="text" value=<%= form[key].value%>>
                 <br><br>

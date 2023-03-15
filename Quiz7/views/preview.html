@@ -8,5 +8,10 @@
 </head>
 <body>
     
+     <% for( let key in form ) { %>
+         <label> <%= key %> : <%= form[key] %></label>
+         <br>
+     <% } %>
+
 </body>
 </html>

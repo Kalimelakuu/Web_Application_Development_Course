@@ -4,6 +4,13 @@ let user = express.Router();
 let userFile = require('./history')
 
 let data;
+
+
+app.use(cookieParse())
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+
+
 user.get("/", function (req, res, next) {
     
   res.sendFile(path.join(__dirname, "./html", "index.html"));

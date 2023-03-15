@@ -1,0 +1,17 @@
+var list = {
+
+Personal: {name:'Ram', alias: 'Lakshman', age: 32 },
+
+Preferences: [{ color: 'blue', theme: 'Azure' },
+
+{ color: 'yellow', theme: 'Imagination' }]
+
+}
+
+1. Show the index.html page when User enters landing page ('/'), (send the above object)
+
+Data should be shown in the page from the above object
+
+2. Display preview.html page when User hits on Submit
+
+Should show the User selected values.

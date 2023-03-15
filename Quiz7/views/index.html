@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #labelObj{
+            color: blue;
+            
+        }
+
+    </style> 
+</head>
+
+<body>
+    
+    <form action="/post" method="post">
+
+        <% for( let obj in list ) { %>
+         
+                 <!-- first we need to finish the scenario for the object value if it is array or not , if it is it will loop through the array  -->
+            <% if (Array.isArray(list[obj])) { %>
+                <h3><%= obj %></h3>
+              
+                <% for( let vals of list[obj] ) { %>
+                      
+                      <% for( let key in vals) { %>
+                       
+                        <!-- if the key is color it will write the color name in h3 tag then loop again through the object to finish
+                        wiriting the values of the color -->
+                        <% if (key == 'color' ) { %>
+                            <h3><%= key %> : </h3>
+    
+                            <% for( let vals2 of list[obj] ) { %>
+                               
+                                    <% for( let key2 in vals2 ) { %>
+                                        <% if (key == key2) { %>
+                                            <label><%= vals2[key2] %> </label>
+                                            
+                                        <% } %>
+                                    <% } %>
+                            <% } %>
+                            
+                            
+                          <% } else {%>
+                             <!-- else  the key is theme then it will write the color name in h3 tag then loop again through the object to finish
+                        wiriting the values of the color -->
+                            <h3><%= key %> : </h3>
+
+                            <% for( let vals2 of list[obj] ) { %>
+                                <% for( let key2 in vals2 ) { %>
+                                    <% if (key == key2) { %>
+                                        <label><%= vals2[key2] %></label>
+                                        
+                                    <% } %>
+                                <% } %>
+                        <% } %>
+    
+                            <% } %>
+                            
+                      <% } %>
+                      <!-- Since we finish writing the values for each color and them we do not need to loop again so we use break -->
+                      <% break;%>    
+    
+                <% } %>
+            <% } else if (typeof list[obj] == 'object') { %>
+                <!-- if the type is object we will create a label and an input filed for each key values in our object  -->
+                  <h3><%= obj %></h3>
+                <% for( let key in list[obj]) { %>
+                      <label id="labelObj"><%= key %> : </label>
+                      <input name=<%= key%> value=<%= list[obj][key] %> >
+                      <br><br>
+                <% } %>
+    
+            <% } %>
+    
+         <% } %>
+         <br><br>
+         <input type="submit"  value="Submit">
+    </form>
+</body>
+
+</html>

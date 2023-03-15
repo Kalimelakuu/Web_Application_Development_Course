@@ -13,9 +13,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
+
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 app.set("views",path.join(__dirname,"myDir"))
+
 
 app.get("/", function (req, res, next) {
     // res.send(" Hello ")

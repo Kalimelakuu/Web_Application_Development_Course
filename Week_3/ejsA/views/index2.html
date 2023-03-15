@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, tr , td{
+            margin-left: 60px;
+        }
+    </style>
+</head>
+<body>
+
+       <% for( let ele in num1 ) { %>
+
+             <% if (ele == 'Title') { %>
+                  <h1> <%= num1[ele] %></h1>
+             <% } else { %>
+                <p><%= num1[ele] %></p>
+                <% } %>
+       <% } %>
+
+
+
+
+
+       
+
+
+   <% for( let ele in num4 ) { %>
+        <% if (typeof num4[ele] != 'object') { %>
+            <label><%= ele %></label>
+            <input type="text" value=<%= num4[ele] %>>
+            <br><br>
+        <% } else {%>
+            <label><%= ele %></label>
+            <select name="" id="">
+                <% for( let ele2 in num4[ele] ) { %>
+                    <% let selected = num4[ele].value %>
+                    <% if (typeof num4[ele][ele2] == 'object') { %>
+                         <% for( let val of num4[ele][ele2] ) { %>
+                            <% if (selected == val) { %>
+                               <option selected value=<%= ele2 %> > <%= val %> </option>
+                             
+                            <% }else { %>
+                                <option value=<%= ele2 %> > <%= val %> </option>
+                                <% } %>
+                         <% } %>
+                    <% }%>
+                <% } %>
+            </select>
+        <% } %>
+   <% } %>
+
+
+
+
+
+
+       
+
+       <% for( let obj of num2 ) { %>
+           <% for( let key in obj ) { %>
+                <ul>
+                    <% if (typeof obj[key] != 'object') { %>
+                       <li><%= obj[key] %>
+
+                         <ul>
+                        <% for( let key2 in obj ) { %>
+                            <% if (typeof obj[key2] == 'object') { %>
+                                  <% for( let val of obj[key2] ) { %>
+                                     <li> <%= val %></li>
+                                  <% } %>
+                            <% } %>
+                         <% } %>
+                         </ul>
+
+
+                      </li>
+                    <% } %>
+                    
+                </ul>
+           <% } %>
+       <% } %>
+
+
+
+
+
+
+
+
+
+        <% for( let key in form2) { %>
+           
+            <% if ( typeof form2[key] == 'object') { %>
+              <p><%= key %></p>
+              <table>
+                <% for( let key2 in form2[key] ) { %>
+                       <th> <%=  key2 %></th>
+                <% } %> 
+                <tr>
+                <% for( let key2 in form2[key] ) { %>
+                    <td> <%= form2[key][key2] %></td>
+                <% } %> 
+               </tr>
+              </table>
+              <br><br>
+
+            <% } else {%>
+
+                <label for=""> <%= key %>   :  <%= form2[key]%></label>
+                <br><br>
+
+            <% } %>
+        <% } %>
+    
+</body>
+</html>
