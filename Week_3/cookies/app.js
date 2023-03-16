@@ -18,6 +18,7 @@ app.get("/", function(req, res, next){
 
     res.cookie("y","Hello")
     res.cookie('z', {a:3})
+    
     res.send("TEST <form action='/' method='post'><input type='submit' /></form>")
 })
 

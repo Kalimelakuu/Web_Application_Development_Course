@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+     <script>
+      
+        function makeAjaxCall(){
+            $.ajax('/ajaxMethod', {
+                'type' : "post",
+                 'data' : {
+                    'myData' : $('#input1').val()
+                 }
+            }).done(function(response){
+
+                console.log(response.color) 
+                
+                $('input').css("background-color" , response.color)
+                
+
+            }).fail(function(){
+                console.log("Error")
+            })
+        }
+        function showUpdateScore(){
+            $.ajax('/ajaxUpdateScore', {
+                'type' : "get",
+
+            }).done(function(response){
+
+                console.log(response.score) 
+                
+                $('#par1').text(response.score)
+                
+
+            }).fail(function(){
+                console.log("Error")
+            })
+        }
+       // setInterval(makeAjaxCall, 2000)
+      setInterval(showUpdateScore , 3000);
+
+     </script>
+</head>
+<body>
+    <p id="par1"></p>
+    <form action="/add" method="post">
+
+        <input type="text"  name="fruit" id="input1">
+        <input type="button" onclick="showUpdateScore()" value="Ajax Call" >
+    </form>
+    
+</body>
+</html>

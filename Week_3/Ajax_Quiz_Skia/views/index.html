@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("/img/weather.jpeg");
+            color: yellow;
+            font-size: 20px;
+        }
+
+        div {
+            padding: 15px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid white;
+        }
+
+        button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            margin: 4px 2px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #myId{
+            background-color: lightpink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p ></p>
+        <h1>Weather Update</h1>
+        Weather Source
+        <input type="radio" value="AccuWeatherAPI" /> AccuWeatherAPI
+        <input type="radio" value="VisualCrossingAPI" /> VisualCrossingAPI
+        <br/><br/>
+        <input id='myWeather' type="text"/>
+        <br />
+        <hr />
+        <button >Update</button>
+        <button style="background-color:grey;" >Stop Update</button>
+    </div>
+
+
+</body>
+
+</html>
