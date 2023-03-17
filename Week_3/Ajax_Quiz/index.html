@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
-     <script>
+    <script>
+      let interval ;
       
-        function makeAjaxCall(){
-            $.ajax('/ajaxMethod', {
-                'type' : "post",
-                 'data' : {
-                    'myData' : $('#input1').val()
-                 }
-            }).done(function(response){
+      
+      //interval = setInterval(makeAjaxCall, 2000); // 10:20
+     
 
-                console.log(response.color) 
-                
-                $('input').css("background-color" , response.color)
-                
+      function stopCall() { 
+        clearInterval(interval);
+      }
+      
+      function makeAjaxCall() {
+        $.ajax("/ajaxMethod", {
+          type: "post",
+          data: {
+            fruit: $("#input1").val(),
+          },
+        })
+          .done(function (response) {
+            console.log(response);
 
-            }).fail(function(){
-                console.log("Error")
-            })
-        }
-        function showUpdateScore(){
-            $.ajax('/ajaxUpdateScore', {
-                'type' : "get",
+            $("input").css("background-color", response.color);
+          })
+          .fail(function () {
+            console.log("Error");
+          });
+      }
 
-            }).done(function(response){
+      function showUpdateScore() {
+        $.ajax("/ajaxUpdateScore", {
+          type: "get",
+        })
+          .done(function (response) {
+            console.log(response.score);
 
-                console.log(response.score) 
-                
-                $('#par1').text(response.score)
-                
-
-            }).fail(function(){
-                console.log("Error")
-            })
-        }
-       // setInterval(makeAjaxCall, 2000)
-      setInterval(showUpdateScore , 3000);
-
-     </script>
-</head>
-<body>
+            $("#par1").text(response.score);
+          })
+          .fail(function () {
+            console.log("Error");
+          });
+      }
+      
+      // setInterval(makeAjaxCall, 2000)
+       setInterval(showUpdateScore , 3000);
+    </script>
+  </head>
+  <body>
     <p id="par1"></p>
-    <form action="/add" method="post">
 
-        <input type="text"  name="fruit" id="input1">
-        <input type="button" onclick="showUpdateScore()" value="Ajax Call" >
-    </form>
-    
-</body>
+    <input type="text" name="fruit" id="input1" />
+    <input type="button" onclick="makeAjaxCall()" value="Ajax Call" />
+
+    <input type="button" onclick="stopCall()" value="Stop Call" />
+
+    <input type="button" onclick="showUpdateScore()" value="Stop Call" />
+
+    <!-- <form action="/ajaxMethod" method="post">
+        
+        <input type="submit" value="Submit" >
+        
+    </form> -->
+  </body>
 </html>

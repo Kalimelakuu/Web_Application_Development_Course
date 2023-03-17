@@ -3,10 +3,12 @@ const app = express();
 var router = require('./routes')
 var path = require("path")
 var ejs = require("ejs")
+var cookie = require('cookie-parser')
 app.listen(80, () => {
     console.log('Your Server is running on 80');
 })
 
+app.use(cookie())
 app.use('/img', express.static(path.join(__dirname, 'public', 'images')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

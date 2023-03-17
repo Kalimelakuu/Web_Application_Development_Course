@@ -1,61 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
     <title>Document</title>
+
+    <script>
+      let intervalID = null;
+    
+ 
+    
+
+      function updateTheWeather() {
+       
+        intervalID = setInterval(() => {
+          $.ajax("/update", {
+            type: "post",
+            data: {
+            myInput: $("#myWeather").val(), //45 
+            weathers: $("input[name='weathers']:checked").val(), //  AccuWeatherAPI 
+          },
+         
+          })
+            .done(function (respones) {
+              console.log(respones);
+             
+             
+              $("#par1").text(respones.average);
+            
+              setTimeout(function () {
+                $("#par1").text('------');
+              }, 1000);
+            })
+            .fail(function () {
+              console.log("Error");
+            });
+        }, 2000);
+      }
+
+
+   
+
+      function stopUpdate() {
+        clearInterval(intervalID);
+      }
+      
+    </script>
     <style>
-        body {
-            background-image: url("/img/weather.jpeg");
-            color: yellow;
-            font-size: 20px;
-        }
+      body {
+        background-image: url("/img/weather.jpeg");
+        color: yellow;
+        font-size: 20px;
+      }
 
-        div {
-            padding: 15px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid white;
-        }
+      div {
+        padding: 15px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid white;
+      }
 
-        button {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            text-align: center;
-            margin: 4px 2px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        #myId{
-            background-color: lightpink;
-        }
+      button {
+        background-color: #4caf50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        margin: 4px 2px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #myId {
+        background-color: lightpink;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div>
-        <p ></p>
-        <h1>Weather Update</h1>
-        Weather Source
-        <input type="radio" value="AccuWeatherAPI" /> AccuWeatherAPI
-        <input type="radio" value="VisualCrossingAPI" /> VisualCrossingAPI
-        <br/><br/>
-        <input id='myWeather' type="text"/>
-        <br />
-        <hr />
-        <button >Update</button>
-        <button style="background-color:grey;" >Stop Update</button>
+      <p style="text-align: center" id="par1">Average Weather</p>
+
+      <h1>Weather Update</h1>
+      Weather Source
+
+      <input type="radio" value="AccuWeatherAPI" name="weathers" />
+      AccuWeatherAPI
+      <input
+        type="radio"
+        value="VisualCrossingAPI"
+        name="weathers"
+       
+      />
+      VisualCrossingAPI <br /><br />
+      <input id="myWeather" type="text" name="myInput" />
+      <br />
+      <hr />
+      <button onclick="updateTheWeather()">Update</button>
+      <button onclick="stopUpdate()" style="background-color: grey">Stop Update</button>
     </div>
-
-
-</body>
-
+  </body>
 </html>
