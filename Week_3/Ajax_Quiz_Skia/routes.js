@@ -32,7 +32,7 @@ router.post("/update",function(req,res,next){
     
 })
 
-
+ 
 
 router.post("/show",function(req,res,next){
     res.sendFile(path.join(__dirname,"index.html"))

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <title>Document</title>
+
+    <style>
+        #myStatus{
+            font-weight: 300;
+            font-size: 25px;
+        }
+        #timerShower{
+            font-weight: 300px;
+            font-size: 20px;
+            color: red;
+            padding: 5px;
+        }
+        #secLetter{
+            font-weight: 300px;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+    <script>
+      
+      let interval;
+      function myButton() {
+        $.ajax("/postMethod", {
+          type: "post",
+          data: {
+            myInput: $("#input1").val(),
+            
+          },
+        })
+          .done(function (response) {
+            // this will get the value from the server and print the status Label and the give it the reponse color
+            $('#myStatus').text(response.status)
+            $('#myStatus').css('color', response.color)
+           
+            
+            if(response.status == 'Account Locked for'){
+                let sec = response.timer;
+
+                // 1. when the status is locked we hide the button
+                // 2. then the timershower and the second letter will appear and have the text value
+
+
+                interval = setInterval(()=> {
+                $('#btn').hide()
+                $('#timerShower').text(sec)
+                $('#secLetter').text('S')
+                
+                sec--;
+                 // we clear the interval if the sec is waited for  3 sec , which means when it is -1 we will clear out
+                //   1. we will make the status to Welcome
+                //   2. then style it to black color
+                //   3. then the timerShower and the second letter  shower will be removed
+                //   4. the button will be appear
+
+                if(sec == -1){
+                    clearInterval(interval)
+                    $('#myStatus').text("Welcome")
+                    $('#myStatus').css('color', 'black')
+                    $('#timerShower').text("")
+                    $('#secLetter').text("")
+                    $('#btn').show()
+                }
+               }, 1000)
+            }
+          })
+          .fail(function (response) {
+            console.log("Error");
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <label id="myStatus">Welcome</label>
+    <label for="" id="timerShower"></label>
+    <label for="" id="secLetter"> </label>
+    <br /><br><br>
+    <label for="">Enter Key </label>
+    <input type="text" id="input1" />
+    <input type="submit" value="submit" id="btn"  onclick="myButton()"/>
+  </body>
+</html>
